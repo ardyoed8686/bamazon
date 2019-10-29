@@ -19,3 +19,21 @@ var connection = mysql.createConnection({
   password: "macHim!8686",
   database: "bamazon_db"
 });
+// connect to the mysql server and sql database
+connection.connect(function(err) {
+  if (err) throw err;
+  // run the start function after the connection is made to prompt the user
+  shop();
+});
+// function which prompts the user for the ID of what they would like to buy
+function shop() {
+  inquirer
+  .prompt({
+    name: "shop",
+    type: "input",
+    message: "What would you like to buy?",
+  })
+  .then(function (answer) {
+    
+  })
+}
