@@ -38,7 +38,7 @@ function showProducts() {
   shopItems();
 }
 
-// function which prompts the user for the ID of what they would like to buy
+// function which prompts the user for the ID and qantity of what they would like to buy
 function shopItems() {
   inquirer
   .prompt([
@@ -61,7 +61,7 @@ function shopItems() {
   ])
   .then(function (answer) {
     var chosenItem;
-    for (var i = 0; i < results.length; i++) {
+    for (var i = 0; i < res.length; i++) {
       if (res[i].item_id === answer.item) {
         chosenItem = res[i];
       }
@@ -72,15 +72,16 @@ function shopItems() {
 
 
  // determine if quantity is high enough
- if (chosenItem.stock_quantity < parseInt(answer.quantity)) {
+//  if (chosenItem.stock_quantity < parseInt(answer.quantity)) {
   // quantity is high enough, so update db, let the user know, and start over
-  connection.query(
-    "UPDATE auctions SET ? WHERE ?",
-    [
-      {
-        highest_bid: answer.bid
-      },
-      {
-        id: chosenItem.id
-      }
-    ],
+  // connection.query(
+  //   "UPDATE auctions SET ? WHERE ?",
+  //   [
+  //     {
+  //       highest_bid: answer.bid
+  //     },
+  //     {
+  //       id: chosenItem.id
+  //     }
+  //   ],
+    // else let customer know there is insufficient quantity
