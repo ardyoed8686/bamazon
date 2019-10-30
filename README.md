@@ -12,7 +12,7 @@ User is prompted
 
    ### Screenshots
 
-<<<<<<< HEAD
+
 1. ![bamazon image](https://github.com/ardyoed8686/bamazon/blob/master/images/Screen%20Shot%202019-10-29%20at%208.33.43%20PM.png)
 
 ### Deployed Link
