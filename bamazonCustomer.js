@@ -61,15 +61,17 @@ function shopItems(res) {
   ])
   .then(function (answer) {
     
-    if (answer.item === "quit"){
-      console.log(answer);
-      process.exit(0);
-    }
+    // if (answer.item === "quit"){
+    //   console.log(answer);
+    //   process.exit(0);
+    // }
+    
 
     var chosenItem;
     for (var i = 0; i < res.length; i++) {
       if (res[i].item_id === parseInt(answer.item) && res[i].stock_quantity === parseInt(answer.quantity)) {
         chosenItem = res[i];
+        console.log(answer);
       }
     }
     console.log("You have selected ID" , chosenItem);
