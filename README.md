@@ -4,9 +4,10 @@ This bot will allow a user to query for list of products. They are asked the ID 
 
 
 ### Operating Instructions
+   * User will need to install `dotenv` and setup `var password = ""` inside
    * Show the user a list of products
-   
 
+   
 User is prompted
    * `What is your item ID nmber?` 
    * `What quantity do you want to buy?`
@@ -24,8 +25,10 @@ User is prompted
 
 ### Technologies Used
 
+*  dotenv for storing password
 *  fs package for read and write of text files
 *  mysql package
+
 
 Author: Romy Owens
    

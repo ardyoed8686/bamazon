@@ -66,19 +66,23 @@ function shopItems(res) {
   }
   ])
   .then(function (answer) {
-    console.log(answer);
+  
     if (answer.item === "quit"){
       console.log(answer);
       process.exit(0);
     }
     
-    var chosenItem;
-    for (var i = 0; i < res.length; i++) {
-      if (res[i].item_id === parseInt(answer.item) && res[i].stock_quantity === parseInt(answer.quantity)) {
-        chosenItem = res[i];
+      var chosenItem;
+      // console.log(chosenItem);
+      console.log(answer);
+  
+      for (var i = 0; i < res.length; i++) {
+        if (res[i].item_id === parseInt(answer.item) && res[i].stock_quantity === parseInt(answer.quantity)) {
+          chosenItem = res[i];
+        }
       }
-    }
-    console.log("You have selected item" , chosenItem);
+    
+    console.log("You have selected item", chosenItem);
     sufficientItems(chosenItem, {item: parseInt(answer.item), quantity: parseInt(answer.quantity)});
   })
 }
