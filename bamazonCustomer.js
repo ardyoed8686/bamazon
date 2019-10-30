@@ -1,3 +1,9 @@
+// add code to read and set any environment variables with the dotenv package:
+require("dotenv").config();
+var password = require('./.env')
+
+console.log(password);
+
 // require npm inquirer package
 var inquirer = require("inquirer");
 
@@ -60,7 +66,7 @@ function shopItems(res) {
   }
   ])
   .then(function (answer) {
-    
+    console.log(answer);
     if (answer.item === "quit"){
       console.log(answer);
       process.exit(0);
@@ -72,7 +78,7 @@ function shopItems(res) {
         chosenItem = res[i];
       }
     }
-    console.log("You have selected ID" , chosenItem);
+    console.log("You have selected item" , chosenItem);
     sufficientItems(chosenItem, {item: parseInt(answer.item), quantity: parseInt(answer.quantity)});
   })
 }

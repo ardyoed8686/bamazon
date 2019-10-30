@@ -5,6 +5,7 @@ This bot will allow a user to query for list of products. They are asked the ID 
 
 ### Operating Instructions
    * Show the user a list of products
+   
 
 User is prompted
    * `What is your item ID nmber?` 
