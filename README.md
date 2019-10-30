@@ -12,7 +12,11 @@ User is prompted
 
    ### Screenshots
 
+<<<<<<< HEAD
 1. ![bamazon image](https://github.com/ardyoed8686/bamazon/blob/master/images/Screen%20Shot%202019-10-29%20at%208.33.43%20PM.png)
+=======
+1. ![liri movie-this](https://github.com/ardyoed8686/liri-node-app/blob/master/images/Screen%20Shot%202019-10-22%20at%208.11.13%20PM.png)
+>>>>>>> 9a235f5e383551633fded6c3a8f115b305e26fad
    
 
 
