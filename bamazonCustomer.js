@@ -34,20 +34,20 @@ function showProducts() {
       console.log(res[i].item_id + " | " + res[i].product_name + " | " + res[i].department_name + " | " + res[i].price + " | " + res[i].stock_quantity);
     }
     console.log("-----------------------------------");
+    shopItems(res);
   })
-  shopItems();
 }
 
 // function which prompts the user for the ID and qantity of what they would like to buy
-function shopItems() {
+function shopItems(res) {
   inquirer
   .prompt([
     {
     name: "item",
     type: "input",
     message: "What is your item ID?"
-    }
-    {
+    },
+  {
     name: "quantity",
     type: "input",
     message: "How many items do you want to buy?",
@@ -57,31 +57,40 @@ function shopItems() {
       }
       return false;
       }
-    }
+  }
   ])
   .then(function (answer) {
+    
+    if (answer.item === "quit"){
+      console.log(answer);
+      process.exit(0);
+    }
+
     var chosenItem;
     for (var i = 0; i < res.length; i++) {
-      if (res[i].item_id === answer.item) {
+      if (res[i].item_id === parseInt(answer.item) && res[i].stock_quantity === parseInt(answer.quantity)) {
         chosenItem = res[i];
       }
     }
-    console.log("You have selected ID" + chosenItem);
+    console.log("You have selected ID" , chosenItem);
+    sufficientItems(chosenItem, {item: parseInt(answer.item), quantity: parseInt(answer.quantity)});
   })
 }
 
-
- // determine if quantity is high enough
-//  if (chosenItem.stock_quantity < parseInt(answer.quantity)) {
-  // quantity is high enough, so update db, let the user know, and start over
-  // connection.query(
-  //   "UPDATE auctions SET ? WHERE ?",
-  //   [
-  //     {
-  //       highest_bid: answer.bid
-  //     },
-  //     {
-  //       id: chosenItem.id
-  //     }
-  //   ],
-    // else let customer know there is insufficient quantity
+function sufficientItems(chosenItem, answer) {
+  // determine if quantity is high enough
+ if (chosenItem.stock_quantity < answer.quantity) {
+    console.log("Sorry, Insufficient quantity.");
+ }
+ else{
+   var remainingQuantity = chosenItem.stock_quantity - answer.quantity
+  connection.query(
+    // quantity is high enough, so update db, let the user know, and start over
+   "UPDATE products SET stock_quantity=? WHERE item_id=?",
+   [remainingQuantity, chosenItem.item_id], function (error, results){
+     if (error) throw error;
+     showProducts();
+   });
+  }
+}
+ 
