@@ -15,8 +15,10 @@ User is prompted
 
 1. ![bamazon image](https://github.com/ardyoed8686/bamazon/blob/master/images/Screen%20Shot%202019-10-29%20at%208.33.43%20PM.png)
 
+2. ![bamazon image2](https://github.com/ardyoed8686/bamazon/blob/master/images/Screen%20Shot%202019-10-29%20at%209.09.15%20PM.png)
+
 ### Deployed Link
- - https://ardyoed8686.github.io/liri-node-app/
+ - https://ardyoed8686.github.io/bamazon/
 
 
 ### Technologies Used
